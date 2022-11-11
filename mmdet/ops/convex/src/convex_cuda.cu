@@ -3,8 +3,8 @@
 #include <c10/cuda/CUDAGuard.h>
 #include <torch/extension.h>
 
-#include <THC/THC.h>
-#include <THC/THCDeviceUtils.cuh>
+//#include <THC/THC.h>
+//#include <THC/THCDeviceUtils.cuh>
 
 #define INF 10000000
 #define EPS 0.000001
@@ -106,7 +106,8 @@ at::Tensor convex_sort_cuda(
     return convex_index_t;
   }
 
-  dim3 blocks(THCCeilDiv(nbs, 512));
+  //dim3 blocks(THCCeilDiv(nbs, 512));
+  dim3 blocks((nbs + 512 - 1) / 512);
   dim3 threads(512);
   cudaStream_t stream = at::cuda::getCurrentCUDAStream();
 
