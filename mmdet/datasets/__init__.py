@@ -16,6 +16,7 @@ from .obb.dior import DIORDataset
 from .obb.hrsc import HRSCDataset
 from .obb.msra_td500 import MSRATD500Dataset
 from .obb.rctw17 import RCTW17Dataset
+from .metrics import brisque
 
 __all__ = [
     'CustomDataset', 'XMLDataset', 'CocoDataset', 'DeepFashionDataset',
